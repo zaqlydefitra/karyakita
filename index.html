@@ -1,187 +1,44 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karya Kita - Toko Online Aksesoris</title>
-
-<style>
-body{font-family:Arial;margin:0;background:#f4f4f4}
-header{background:#333;color:#fff;padding:20px;text-align:center}
-.logo{font-size:2em;font-weight:bold}
-nav{background:#555;padding:10px;text-align:center}
-nav a{color:#fff;margin:0 12px;text-decoration:none}
-
-.container{max-width:1200px;margin:auto;padding:20px}
-.product-list{display:flex;flex-wrap:wrap;justify-content:space-around}
-
-.product{
-background:#fff;
-width:320px;
-margin:10px;
-padding:20px;
-box-shadow:0 0 10px rgba(0,0,0,.1);
-text-align:center;
-border-radius:8px
-}
-
-.product img.main-img{
-width:100%;
-height:280px;
-object-fit:cover;
-border-radius:6px
-}
-
-.gallery{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:6px;
-margin-top:10px
-}
-
-.gallery img{
-height:80px;
-width:100%;
-object-fit:cover;
-cursor:pointer;
-border-radius:4px;
-border:2px solid transparent
-}
-.gallery img.active{border-color:#333}
-
-.cart{
-position:fixed;
-top:20px;
-right:20px;
-background:#333;
-color:#fff;
-padding:10px;
-cursor:pointer;
-border-radius:6px
-}
-
-.cart-items{
-display:none;
-position:fixed;
-top:70px;
-right:20px;
-background:#fff;
-padding:10px;
-border:1px solid #ccc;
-width:220px;
-z-index:99
-}
-
-button{
-padding:8px 12px;
-background:#333;
-color:#fff;
-border:none;
-cursor:pointer;
-border-radius:4px
-}
-</style>
-</head>
-
-<body>
-
-<header>
-<div class="logo">Karya Kita</div>
-<p>Kualitas Terbaik Harga Kompetitif</p>
-</header>
-
-<nav>
-<a href="#products">Produk</a>
-<a href="#contact">Kontak</a>
-</nav>
-
-<div class="cart" onclick="toggleCart()">Keranjang (0)</div>
-<div class="cart-items" id="cart-items"></div>
-
-<div class="container" id="products">
-
-<div class="product">
-<h3>Kalung Abjad Minimalis</h3>
-
-<img class="main-img" src="https://drive.google.com/uc?id=11T6rBvKsrgZzumIuVucQjuNTMt3VXrVq">
-
-<div class="gallery">
-<img src="images/photo1.jpg" onclick="setMain(this)" class="active">
-<img src="images/photo2.jpg" onclick="setMain(this)">
-<img src="images/photo3.jpg" onclick="setMain(this)">
-<img src="images/photo4.jpg" onclick="setMain(this)">
-<img src="images/photo5.jpg" onclick="setMain(this)">
-<img src="images/photo6.jpg" onclick="setMain(this)">
-</div>
-
-<p>Harga: Rp 25.999</p>
-<p>Stok: 372</p>
-<p>Kategori: Kalung</p>
-<button onclick="addToCart('Kalung Abjad Minimalis',25999)">Tambah ke Keranjang</button>
-</div>
-
-<div class="product">
-<h3>Set Persahabatan Konstelasi</h3>
-<img class="main-img" src="https://drive.google.com/uc?id=1EvzpuBsc_bHIY7G292834dSRWaut-tyG">
-<p>Harga: Rp 10.000</p>
-<p>Kategori: Gelang</p>
-<button onclick="addToCart('Set Persahabatan Konstelasi',10000)">Tambah ke Keranjang</button>
-</div>
-
-<div class="product">
-<h3>Gantungan Kunci Mainan Tas</h3>
-<img class="main-img" src="https://drive.google.com/uc?id=15_otkoloLpjpSJj2NTODs7qygC3SxpFj">
-<p>Harga: Rp 9.450</p>
-<p>Kategori: Gantungan Kunci</p>
-<button onclick="addToCart('Mainan Tas',9450)">Tambah ke Keranjang</button>
-</div>
-
-</div>
-
-<div class="container" id="contact">
-<h2>Kontak</h2>
-<p>WA: 0851-8436-4385</p>
-<p>Email: zaqlydefitra7@gmail.com</p>
-<p>Instagram: deyin__</p>
-</div>
-
-<script>
-let cart=[];
-
-function addToCart(name,price){
-cart.push({name,price});
-updateCart();
-}
-
-function updateCart(){
-document.querySelector('.cart').innerText=`Keranjang (${cart.length})`;
-document.getElementById('cart-items').innerHTML=
-cart.map(i=>`<p>${i.name}<br>Rp ${i.price}</p>`).join('')
-+ '<button onclick="alert(\'Checkout via WA\')">Checkout</button>';
-}
-
-function toggleCart(){
-let c=document.getElementById('cart-items');
-c.style.display=c.style.display==='block'?'none':'block';
-}
-
-function setMain(el){
-let product=el.closest('.product');
-product.querySelector('.main-img').src=el.src;
-product.querySelectorAll('.gallery img').forEach(i=>i.classList.remove('active'));
-el.classList.add('active');
-}
-</script>
-
-</body>
-</html>        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karya Kita - Toko Online Aksesoris</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        header { background-color: #333; color: white; padding: 20px; text-align: center; }
+        .logo { font-size: 2em; font-weight: bold; }
+        .slogan { font-size: 1.2em; margin-top: 10px; }
+        nav { background-color: #555; padding: 10px; text-align: center; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; }
+        .search-bar { text-align: center; margin: 20px; }
+        .search-bar input { padding: 10px; width: 300px; }
+        .search-bar button { padding: 10px; background-color: #333; color: white; border: none; cursor: pointer; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .product-list { display: flex; flex-wrap: wrap; justify-content: space-around; }
+        .product { background-color: white; margin: 10px; padding: 20px; width: 300px; box-shadow: 0 0 10px rgba(0,0,0,0.1); text-align: center; }
+        .product img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 6px;
+        }
+        .cart { position: fixed; top: 20px; right: 20px; background-color: #333; color: white; padding: 10px; cursor: pointer; }
+        .cart-items { display: none; position: absolute; top: 50px; right: 0; background-color: white; border: 1px solid #ccc; padding: 10px; width: 200px; }
+        footer { background-color: #333; color: white; text-align: center; padding: 20px; margin-top: 20px; }
+        .promo { background-color: #ffeb3b; padding: 20px; text-align: center; margin: 20px 0; }
+        .faq, .terms { margin: 20px; padding: 20px; background-color: white; }
+        .checkout { display: none; margin: 20px; padding: 20px; background-color: white; }
+        .checkout form { display: flex; flex-direction: column; }
+        .checkout input, .checkout button { margin: 10px 0; padding: 10px; }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">Karya Kita</div>
         <div class="slogan">Kualitas Terbaik Harga Kompetitif</div>
-        <p>Toko Kita adalah toko online yang menawarkan produk dengan kualitas terbaik dan harga kompetitif. Kami menyediakan layanan pelanggan yang ramah dan responsif, serta pengiriman cepat dan aman.</p>
+        <p>Toko Kita adalah toko online yang menawarkan produk dengan kualitas terbaik dan harga kompetitif. Kami menyediakan layanan pelanggan yang ramah dan responsif, serta pengiriman cepat dan aman. Belanja mudah, hidup lebih baik dengan Toko Karya Kita.</p>
     </header>
     <nav>
         <a href="#products">Produk</a>
@@ -209,30 +66,17 @@ el.classList.add('active');
         <div class="product-list" id="product-list">
             <div class="product">
                 <h3>Kalung "Kalung Abjad Minimalis" (Kalung rantai tipis dengan gambar bintang)</h3>
-                <!-- Main image (default dari Drive). Pengguna dapat klik thumbnail untuk mengganti main image -->
-                <img id="main-image" src="https://drive.google.com/uc?id=11T6rBvKsrgZzumIuVucQjuNTMt3VXrVq" alt="Kalung Abjad Minimalis">
-                
-                <!-- Gallery: photo1..photo6 (photo1 & photo2 sudah Anda kirim sebelumnya, photo3..photo6 adalah gambar terakhir yang Anda kirim sekarang) -->
-                <div class="gallery" id="gallery">
-                    <img src="images/photo1.jpg" alt="Foto 1 - kalung & aksesori" onclick="setMain(this)" />
-                    <img src="images/photo2.jpg" alt="Foto 2 - gelang manik (butterfly beads)" onclick="setMain(this)" />
-                    <img src="images/photo3.jpg" alt="Foto 3 - kalung & ring (gaya 1)" onclick="setMain(this)" />
-                    <img src="images/photo4.jpg" alt="Foto 4 - gantungan kunci kucing (variasi 1)" onclick="setMain(this)" />
-                    <img src="images/photo5.jpg" alt="Foto 5 - gantungan kunci kucing (variasi 2)" onclick="setMain(this)" />
-                    <img src="images/photo6.jpg" alt="Foto 6 - gantungan kunci kucing (variasi 3)" onclick="setMain(this)" />
-                </div>
-
+                <img src="https://drive.google.com/uc?id=11T6rBvKsrgZzumIuVucQjuNTMt3VXrVq" alt="Kalung Abjad Minimalis" onerror="this.src='https://via.placeholder.com/300x220?text=Gambar+Tidak+Tersedia';">
                 <p>Harga: Rp 25.999</p>
                 <p>Stok: 372</p>
-                <p>Deskripsi: Panjang Kalung (45 cm, 50 cm, dan 60 cm). 1 set Kalung rantai rolo dan Liontin Jepit Pria Liontin Bintang Bonus Cincin Pria, dengan kalung set ini menjadi lengkap tanpa h[...]
+                <p>Deskripsi: Panjang Kalung (45 cm, 50 cm, dan 60 cm). 1 set Kalung rantai rolo dan Liontin Jepit Pria Liontin Bintang Bonus Cincin Pria, dengan kalung set ini menjadi lengkap tanpa harus beli satu satu. Langsung 2 beli dapat 3 produk. Kalung ini pasti nya anti karat dan anti luntur, tidak membuat gatal pada kulit, tidak membuat iritasi pada kulit.</p>
                 <p>Spesifikasi/Varian: Ukuran (45cm, 50cm, 60cm)</p>
                 <p>Kategori: Kalung</p>
                 <button onclick="addToCart('Kalung Abjad Minimalis', 25999)">Tambah ke Keranjang</button>
             </div>
-
             <div class="product">
                 <h3>Gelang "Set Persahabatan Konstelasi" (Gelang manik manik dengan mutiara)</h3>
-                <img src="https://drive.google.com/uc?id=1EvzpuBsc_bHIY7G292834dSRWaut-tyG" alt="Set Persahabatan Konstelasi">
+                <img src="https://drive.google.com/uc?id=1EvzpuBsc_bHIY7G292834dSRWaut-tyG" alt="Set Persahabatan Konstelasi" onerror="this.src='https://via.placeholder.com/300x220?text=Gambar+Tidak+Tersedia';">
                 <p>Harga: Rp 10.000</p>
                 <p>Stok: 465</p>
                 <p>Deskripsi: Gelang "Set Persahabatan Konstelasi" (Gelang manik manik dengan mutiara). Spesifikasi: - Gelang Manik - Premium. Ready stok. Happy shopping.</p>
@@ -240,13 +84,14 @@ el.classList.add('active');
                 <p>Kategori: Gelang</p>
                 <button onclick="addToCart('Set Persahabatan Konstelasi', 10000)">Tambah ke Keranjang</button>
             </div>
-
             <div class="product">
                 <h3>Gantungan Kunci “Mainan Tas” (Gantungan kunci dengan gambar kucing lucu)</h3>
-                <img src="https://drive.google.com/uc?id=15_otkoloLpjpSJj2NTODs7qygC3SxpFj" alt="Mainan Tas">
+                <img src="https://drive.google.com/uc?id=15_otkoloLpjpSJj2NTODs7qygC3SxpFj" alt="Gantungan Kucing" onerror="this.src='https://via.placeholder.com/300x220?text=Gambar+Tidak+Tersedia';">
+                <img src="https://drive.google.com/uc?id=15_otkoloLpjpSJj2NTODs7qygC3SxpFj" alt="Gantungan Kucing" onerror="this.src='https://via.placeholder.com/300x220?text=Gambar+Tidak+Tersedia';">
+                <img src="https://drive.google.com/uc?id=15_otkoloLpjpSJj2NTODs7qygC3SxpFj" alt="Gantungan Kucing" onerror="this.src='https://via.placeholder.com/300x220?text=Gambar+Tidak+Tersedia';">
                 <p>Harga: Rp 9.450</p>
                 <p>Stok: 926</p>
-                <p>Deskripsi: Gantungan kunci acrylic UV print 2 sisi. Print menggunakan UV PRINTER BUKAN STICKER. Menggunakan surface protection sehingga durabilitas sangat baik. Finishing berbeda ke[...]
+                <p>Deskripsi: Gantungan kunci acrylic UV print 2 sisi. Print menggunakan UV PRINTER BUKAN STICKER. Menggunakan surface protection sehingga durabilitas sangat baik. Finishing berbeda kepada 2 sisi: 1. Sisi atas finishing glossy, 2. Sisi bawah finishing matte/doff. Tersedia banyak karakter lainnya, silahkan cek halaman toko kami untuk karakter lainnya. HAPPY SHOPPING!!!</p>
                 <p>Spesifikasi/Varian: Sesuai gambar (ABCDEF)</p>
                 <p>Kategori: Gantungan Kunci</p>
                 <button onclick="addToCart('Mainan Tas', 9450)">Tambah ke Keranjang</button>
@@ -324,8 +169,7 @@ el.classList.add('active');
             document.getElementById('cart-items').innerHTML = items + '<button onclick="checkout()">Checkout</button>';
         }
         function toggleCart() {
-            const el = document.getElementById('cart-items');
-            el.style.display = el.style.display === 'block' ? 'none' : 'block';
+            document.getElementById('cart-items').style.display = document.getElementById('cart-items').style.display === 'block' ? 'none' : 'block';
         }
         function checkout() {
             document.getElementById('checkout').style.display = 'block';
@@ -337,21 +181,6 @@ el.classList.add('active');
                 p.style.display = p.innerText.toLowerCase().includes(query) ? 'block' : 'none';
             });
         }
-
-        // Gallery behavior: klik thumbnail untuk mengganti main image
-        function setMain(imgEl) {
-            const main = document.getElementById('main-image');
-            main.src = imgEl.src;
-            // aktifkan border pada thumbnail terpilih
-            document.querySelectorAll('#gallery img').forEach(i => i.classList.remove('active'));
-            imgEl.classList.add('active');
-        }
-
-        // Set thumbnail pertama sebagai aktif saat load (jika file ada)
-        document.addEventListener('DOMContentLoaded', () => {
-            const first = document.querySelector('#gallery img');
-            if (first) first.classList.add('active');
-        });
     </script>
 </body>
-                      </html>
+</html>
